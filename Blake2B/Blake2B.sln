@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blake2B.Demo", "Blake2B.Demo\Blake2B.Demo.csproj", "{E979C67D-2199-4106-AD91-C4612C65F2DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blake2B.Core", "Blake2B.Core\Blake2B.Core.csproj", "{C9EB6AA2-F15F-4512-B36B-BF8588FE0118}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E979C67D-2199-4106-AD91-C4612C65F2DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E979C67D-2199-4106-AD91-C4612C65F2DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E979C67D-2199-4106-AD91-C4612C65F2DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E979C67D-2199-4106-AD91-C4612C65F2DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9EB6AA2-F15F-4512-B36B-BF8588FE0118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9EB6AA2-F15F-4512-B36B-BF8588FE0118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9EB6AA2-F15F-4512-B36B-BF8588FE0118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9EB6AA2-F15F-4512-B36B-BF8588FE0118}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4567A86F-E2FB-4A1D-A005-6693A17DA8A7}
+	EndGlobalSection
+EndGlobal
