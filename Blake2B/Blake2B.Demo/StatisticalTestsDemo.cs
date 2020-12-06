@@ -21,7 +21,9 @@ namespace Blake2B.Demo
             _statisticalTests = new List<IStatisticalTest>
             {
                 new FrequencyMonobitTest(),
-                new FrequencyBlockTest(3)
+                new FrequencyBlockTest(),
+                new RunsTest(),
+                new CumulativeSumsTests()
             };
         }
 

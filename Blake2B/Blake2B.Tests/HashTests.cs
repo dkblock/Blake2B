@@ -1,3 +1,4 @@
+using Blake2B.Core;
 using Blake2B.StatisticalTests;
 using System.Collections;
 using System.Text;
@@ -12,9 +13,12 @@ namespace Blake2B.Tests
 
         public HashTests()
         {
+            var blake = new Blake2B_Algorithm();
             var testString = "The quick brown fox jumps over the lazy dog";
             var testData = Encoding.ASCII.GetBytes(testString);
-            _testValue = new BitArray(testData);
+            var hash = blake.ComputeHash(testData);
+
+            _testValue = new BitArray(hash);
         }
 
         [Fact]
@@ -29,10 +33,35 @@ namespace Blake2B.Tests
         [Fact]
         public void FrequencyBlockTest_ShouldPass()
         {
-            var blockLength = 3;
-            var frequencyBlockTest = new FrequencyBlockTest(blockLength);
-
+            var frequencyBlockTest = new FrequencyBlockTest();
             var actual = frequencyBlockTest.GetPValue(_testValue);
+
+            Assert.True(actual > EXPECTED_VALUE);
+        }
+
+        [Fact]
+        public void RunsTest_ShouldPass()
+        {
+            var runsTest = new RunsTest();
+            var actual = runsTest.GetPValue(_testValue);
+
+            Assert.True(actual > EXPECTED_VALUE);
+        }
+
+        [Fact]
+        public void CumulativeSumsTest_InForwardMode_ShouldPass()
+        {
+            var cusumTest = new CumulativeSumsTests(0);
+            var actual = cusumTest.GetPValue(_testValue);
+
+            Assert.True(actual > EXPECTED_VALUE);
+        }
+
+        [Fact]
+        public void CumulativeSumsTest_InBackwardMode_ShouldPass()
+        {
+            var cusumTest = new CumulativeSumsTests(1);
+            var actual = cusumTest.GetPValue(_testValue);
 
             Assert.True(actual > EXPECTED_VALUE);
         }

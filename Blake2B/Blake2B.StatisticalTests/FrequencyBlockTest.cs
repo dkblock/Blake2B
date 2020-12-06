@@ -8,7 +8,7 @@ namespace Blake2B.StatisticalTests
     {
         private readonly int _blockLength;
 
-        public FrequencyBlockTest(int blockLength)
+        public FrequencyBlockTest(int blockLength = 3)
         {
             _blockLength = blockLength;
         }

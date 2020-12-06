@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blake2B.Core\Blake2B.Core.csproj" />
     <ProjectReference Include="..\Blake2B.StatisticalTests\Blake2B.StatisticalTests.csproj" />
   </ItemGroup>
 
