@@ -177,7 +177,7 @@ namespace Blake2B.Core
             _v[14] = IV6 ^ _flag0;
             _v[15] = IV7 ^ _flag1;
 
-            for (int r = 0; r < 12; ++r)
+            for (int r = 0; r < ROUNDS; r++)
             {
                 Mixing(0, 4, 8, 12, r, 0);
                 Mixing(1, 5, 9, 13, r, 2);
