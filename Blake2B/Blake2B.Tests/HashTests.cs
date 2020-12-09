@@ -49,6 +49,24 @@ namespace Blake2B.Tests
         }
 
         [Fact]
+        public void LongestRunOfOnesTest_ShouldPass()
+        {
+            var longestRunOfOnesTest = new LongestRunOfOnesTest();
+            var actual = longestRunOfOnesTest.GetPValue(_testValue);
+
+            Assert.True(actual > EXPECTED_VALUE);
+        }
+
+        [Fact]
+        public void BinaryMatrixRankTest_ShouldPass()
+        {
+            var binarymatrixRankTest = new BinaryMatrixRankTest();
+            var actual = binarymatrixRankTest.GetPValue(_testValue);
+
+            Assert.True(actual > EXPECTED_VALUE);
+        }
+
+        [Fact]
         public void CumulativeSumsTest_InForwardMode_ShouldPass()
         {
             var cusumTest = new CumulativeSumsTests(0);

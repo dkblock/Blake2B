@@ -10,8 +10,11 @@ namespace Blake2B.StatisticalTests
         private readonly int _rows;
         private readonly int _columns;
 
-        public BinaryMatrixRankTest(int rows = 32, int columns = 32)
+        public BinaryMatrixRankTest(int rows = 3, int columns = 3)
         {
+            if (rows != 3 || columns != 3)
+                throw new Exception("Unsupported rows/columns number. Try 3x3 for example");
+
             _rows = rows;
             _columns = columns;
         }
@@ -24,7 +27,7 @@ namespace Blake2B.StatisticalTests
             var fm = 0;         // count of matrixes with full rank
             var fm1 = 0;        // count of matrixes with full rank - 1
 
-            foreach(var matrix in matrixes)
+            foreach (var matrix in matrixes)
             {
                 if (Matrix.Rank(matrix) == _rows)
                     fm++;
@@ -34,7 +37,7 @@ namespace Blake2B.StatisticalTests
 
             var chiSquare = (fm - 0.2888 * blocksCount) * (fm - 0.2888 * blocksCount) / (0.2888 * blocksCount) +
                 (fm1 - 0.5776 * blocksCount) * (fm1 - 0.5776 * blocksCount) / (0.5776 * blocksCount) +
-                (blocksCount - fm - fm1 - 0.1336) * (blocksCount - fm - fm1 - 0.1336) / (0.1336 * blocksCount);
+                (blocksCount - fm - fm1 - 0.1336 * blocksCount) * (blocksCount - fm - fm1 - 0.1336 * blocksCount) / (0.1336 * blocksCount);
 
             var pValue = Math.Exp(-chiSquare / 2);
 

@@ -1,5 +1,6 @@
 ﻿using Blake2B.Core;
 using System;
+using System.Text;
 
 namespace Blake2B.Demo
 {
@@ -8,15 +9,29 @@ namespace Blake2B.Demo
         static void Main(string[] args)
         {
             var testString = "Hello, world!";
-            var testsDemo = new StatisticalTestsDemo(testString);
-
-            testsDemo.Run();
-            //var blake = new Blake2B_Algorithm();
-            //var message = "abc";
-            //var hash = blake.ComputeHash(message);
-
-            //Console.WriteLine(hash);
-            //Console.ReadLine();
+            var hash = GetHash(testString);            
+            
+            TestsDemo(hash);
         }
+
+        private static byte[] GetHash(string testString)
+        {
+            var blake = new Blake2B_Algorithm();
+            var testValue = Encoding.ASCII.GetBytes(testString);
+
+            var hash = blake.ComputeHash(testValue);
+            var hashToDisplay = blake.ComputeHash(testString);
+
+            Console.WriteLine(hashToDisplay);
+            Console.ReadLine();
+
+            return hash;
+        }
+
+        private static void TestsDemo(byte[] hash)
+        {
+            var testsDemo = new StatisticalTestsDemo(hash);
+            testsDemo.Run();
+        }        
     }
 }

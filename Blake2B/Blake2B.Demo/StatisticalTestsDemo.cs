@@ -13,16 +13,16 @@ namespace Blake2B.Demo
         private readonly IEnumerable<IStatisticalTest> _statisticalTests;
         private readonly BitArray _testValue;
 
-        public StatisticalTestsDemo(string testString)
+        public StatisticalTestsDemo(byte[] testValue)
         {
-            var testData = Encoding.ASCII.GetBytes(testString);
-            _testValue = new BitArray(testData);
-
+            _testValue = new BitArray(testValue);
             _statisticalTests = new List<IStatisticalTest>
             {
                 new FrequencyMonobitTest(),
                 new FrequencyBlockTest(),
                 new RunsTest(),
+                new LongestRunOfOnesTest(),
+                new BinaryMatrixRankTest(),
                 new CumulativeSumsTests()
             };
         }

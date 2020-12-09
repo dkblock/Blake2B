@@ -35,7 +35,7 @@ namespace Blake2B.StatisticalTests
 
             chiSquare *= 4.0 * _blockLength;
 
-            var pValue = 1 - Gamma.LowerIncomplete(blocksCount / 2, chiSquare / 2);
+            var pValue = Gamma.UpperIncomplete(blocksCount / 2, chiSquare / 2);
 
             return pValue;
         }
