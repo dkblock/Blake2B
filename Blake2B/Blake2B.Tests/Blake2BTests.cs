@@ -27,6 +27,17 @@ namespace Blake2B.Tests
         [Fact]
         public void ComputeHash_ReturnsCorrectHash_2()
         {
+            var testString = "The quick brown fox jumps over the lazy dof";
+
+            var expected = "ab6b007747d8068c02e25a6008db8a77c218d94f3b40d2291a7dc8a62090a744c082ea27af01521a102e42f480a31e9844053f456b4b41e8aa78bbe5c12957bb";
+            var actual = _blake.ComputeHash(testString);
+
+            Assert.True(AreEqual(expected, actual));
+        }
+
+        [Fact]
+        public void ComputeHash_ReturnsCorrectHash_3()
+        {
             var testString = "abc";
 
             var expected = "BA80A53F981C4D0D6A2797B69F12F6E94C212F14685AC4B74B12BB6FDBFFA2D17D87C5392AAB792DC252D5DE4533CC9518D38AA8DBF1925AB92386EDD4009923";
@@ -36,7 +47,7 @@ namespace Blake2B.Tests
         }
 
         [Fact]
-        public void ComputeHash_ReturnsCorrectHash_3()
+        public void ComputeHash_ReturnsCorrectHash_4()
         {
             var testString = "Hello world";
 
